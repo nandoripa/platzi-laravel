@@ -9,7 +9,9 @@
             "email": "nandoripa@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "illuminate/http": "^5.2"
+    },
     "autoload": {
       "psr-4": {
         "PlatziPHP\\": "src/"
