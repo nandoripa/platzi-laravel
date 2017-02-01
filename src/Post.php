@@ -70,7 +70,7 @@ class Post
      */
     public function getAuthor()
     {
-        return 'by '.$this->author->getFirstName();
+        return $this->author->getFirstName();
     }
 
     /**
