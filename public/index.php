@@ -1,10 +1,12 @@
 <?php
-use Illuminate\Http\Request;
-use PlatziPHP\Http\Controllers\HomeController;
+
+use Illuminate\Container\Container;
+use PlatziPHP\Application;
 
 require_once __DIR__.'/../vendor/autoload.php';
 
-$request = Request::capture();
-$controller = new HomeController();
+$app = new Application(
+    new Container()
+);
 
-$controller->index($request);
+$app->run();
