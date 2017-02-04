@@ -1,12 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nandoripa
- * Date: 25/1/17
- * Time: 23:29
- */
-
-namespace PlatziPHP;
+namespace PlatziPHP\Domain;
 
 
 class Email
@@ -18,7 +11,7 @@ class Email
 
     /**
      * Email constructor.
-     * @param $address
+     * @param string $address
      */
     public function __construct($address)
     {

@@ -1,6 +1,5 @@
 <?php
-
-namespace PlatziPHP;
+namespace PlatziPHP\Domain;
 
 
 class Post

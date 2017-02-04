@@ -3,9 +3,7 @@ namespace PlatziPHP\Http\Controllers;
 
 use Illuminate\Http\Request;
 use PlatziPHP\Http\Views\View;
-use PlatziPHP\Author;
-use PlatziPHP\Post;
-use PlatziPHP\FakeDatabase;
+use PlatziPHP\Infrastructure\FakeDatabase;
 
 class HomeController
 {

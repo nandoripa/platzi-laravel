@@ -1,5 +1,7 @@
 <?php
 
+use PlatziPHP\Domain\Author;
+
 class AuthorTest extends PHPUnit_Framework_TestCase
 {
     /**
@@ -7,8 +9,8 @@ class AuthorTest extends PHPUnit_Framework_TestCase
      */
     function it_should_construct()
     {
-        $author = new \PlatziPHP\Author('anemail@foo.dev','aPassword');
+        $author = new Author('anemail@foo.dev','aPassword');
 
-        $this->assertInstanceOf(\PlatziPHP\Author::class, $author);
+        $this->assertInstanceOf(Author::class, $author);
     }
 }
