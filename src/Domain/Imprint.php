@@ -2,23 +2,23 @@
 
 namespace PlatziPHP\Domain;
 
-use PlatziPHP\Infrastructure\FakeDatabase;
+use PlatziPHP\Infrastructure\PostRepository;
 
 class Imprint
 {
 
     /**
-     * @type FakeDatabase
+     * @type Postrepository
      */
-    private $database;
+    private $posts;
 
     /**
      * Imprint constructor.
-     * @param FakeDatabase $database
+     * @param Postrepository $repository
      */
-    public function __construct(FakeDatabase $database)
+    public function __construct(Postrepository $repository)
     {
-        $this->database = $database;
+        $this->posts = $repository;
     }
 
     /**
@@ -27,6 +27,16 @@ class Imprint
      */
     public function listPublishedPosts()
     {
-        return $this->database->posts();
+        return $this->posts->all();
+    }
+
+    /**
+     * @param $id
+     * @return Post
+     * @throws EntityNotFound
+     */
+    public function findById($id)
+    {
+        return $this->posts->find($id);
     }
 }

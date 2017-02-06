@@ -33,10 +33,10 @@ class HomeController
 
     public function show($id)
     {
-        $posts = $this->imprint->listPublishedPosts();
+        $post = $this->imprint->findById($id);
 
         $view = new View('post_details',[
-            'post' => $posts->get($id)
+            'post' => $post
         ]);
 
         return $view->render();
