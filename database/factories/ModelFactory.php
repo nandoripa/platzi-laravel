@@ -11,6 +11,8 @@
 |
 */
 
+$faker = Faker\Factory::create('es');
+
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(PlatziLaravel\User::class, function (Faker\Generator $faker) {
     static $password;
@@ -26,6 +28,7 @@ $factory->define(PlatziLaravel\User::class, function (Faker\Generator $faker) {
 $factory->define(PlatziLaravel\Post::class, function (Faker\Generator $faker) {
 
     return [
-        'name' => $faker->realText($maxNbChars = 100, $indexSize = 2)
+        'title' => $faker->realText($maxNbChars = 100, $indexSize = 2),
+        'body' => $faker->realText($maxNbChars = 4000, $indexSize = 4),
     ];
 });

@@ -7,14 +7,13 @@ use PlatziLaravel\Post;
 class PostsController extends Controller
 {
 
-    public function index() {
+    public function show($id) {
 
-        return Post::all();
-    }
+        $post = Post::with('author')->findOrFail($id);
 
-    public function get($id) {
-
-        return Post::find($id);
+        return view('post', [
+            'post' => $post
+        ]);
     }
 
     public function create($name) {

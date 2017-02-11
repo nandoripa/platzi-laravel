@@ -2,9 +2,16 @@
 
 namespace PlatziLaravel\Http\Controllers;
 
+use PlatziLaravel\Post;
+
 class HomeController extends Controller
 {
     public function index() {
-        return view('home');
+
+        $posts = Post::with('author')->orderBy('created_at','desc')->take(3)->get();
+
+        return view('home',[
+            'posts' => $posts
+        ]);
     }
 }

@@ -12,13 +12,14 @@ class Post extends Model
      * @var array
      */
     protected $fillable = [
-        'name'
+        'title',
+        'body'
     ];
 
     public $timestamps = true;
 
-    public function user() {
+    public function author() {
 
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'author_id');
     }
 }

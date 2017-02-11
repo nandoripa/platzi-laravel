@@ -13,9 +13,7 @@
 
 Route::get('/', 'HomeController@index');
 
-Route::get('posts', 'PostsController@index');
-
-Route::get('posts/{id}', 'PostsController@get');
+Route::get('post/{id}', 'PostsController@show')->name('postShow');
 
 Route::get('posts/new}', 'PostsController@create');
 
