@@ -12,7 +12,7 @@ class Post extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'title'
+        'name'
     ];
 
     public $timestamps = true;

@@ -17,8 +17,15 @@ $factory->define(PlatziLaravel\User::class, function (Faker\Generator $faker) {
 
     return [
         'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
+        'email' => $faker->unique()->email,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(PlatziLaravel\Post::class, function (Faker\Generator $faker) {
+
+    return [
+        'name' => $faker->realText($maxNbChars = 100, $indexSize = 2)
     ];
 });
