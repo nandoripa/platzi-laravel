@@ -1,4 +1,8 @@
 /node_modules
+/public/css/app.*.css
+/public/js/app.*.js
+/public/mix-manifest.json
+/public/fonts
 /public/storage
 /public/hot
 /storage/*.key
