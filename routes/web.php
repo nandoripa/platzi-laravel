@@ -15,6 +15,8 @@ Route::get('/', 'HomeController@index');
 
 Route::get('post/{id}', 'PostsController@show')->name('postShow');
 
+Route::get('auth', 'AuthController@index');
+
 Route::get('posts/new}', 'PostsController@create');
 
 Route::get('users', 'UsersController@index');
@@ -22,3 +24,5 @@ Route::get('users', 'UsersController@index');
 Route::get('users/{id}', 'UsersController@get');
 
 Route::get('users/{name}', 'UsersController@create');
+
+Auth::routes();
