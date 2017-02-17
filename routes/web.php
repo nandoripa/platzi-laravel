@@ -11,7 +11,15 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('post/create', 'PostsController@create')->name('postCreate');
+
+Route::get('post/edit/{id}', 'PostsController@edit')->name('postEdit');
+
+Route::post('post/create', 'PostsController@store')->name('postCreate');
+
+Route::get('post/delete/{id}', 'PostsController@delete')->name('postDelete');
 
 Route::get('post/{id}', 'PostsController@show')->name('postShow');
 

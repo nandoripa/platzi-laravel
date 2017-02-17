@@ -2,6 +2,8 @@
 
 namespace PlatziLaravel\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+use PlatziLaravel\Http\Requests\PostStore;
 use PlatziLaravel\Post;
 
 class PostsController extends Controller
@@ -21,20 +23,42 @@ class PostsController extends Controller
 
         $post = Post::with('author')->findOrFail($id);
 
-        return view('post', [
+        return view('posts.detail', [
             'post' => $post
         ]);
     }
 
-    public function create($name) {
+    public function create() {
 
-        $post = Post::create([
-            'author_id' => 3,
-            'title' => 'This is the post #'.random_int(1,10)
+        return view('posts.form');
+    }
+
+    public function edit($id) {
+
+        $post = Post::with('author')->findOrFail($id);
+
+        return view('posts.form', [
+            'post' => $post
         ]);
+    }
+
+    public function store(PostStore $request) {
+
+        $post = Post::firstOrNew(['id' => $request->get('id')]);
+
+        $post->title = $request->get('title');
+        $post->body = $request->get('body');
+        $post->author_id = Auth::id();
 
         $post->save();
 
-        return $post;
+        return redirect()->route('home');
+    }
+
+    public function delete($id) {
+
+        Post::destroy($id);
+
+        return redirect()->route('home');
     }
 }
